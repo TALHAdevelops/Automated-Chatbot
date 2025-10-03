@@ -1,19 +1,14 @@
 
-
-// Simple pizza shop chatbot using only basic DOM, if/else, and while loop
 var chatWindow = document.getElementById('chat-window');
 var chatForm = document.getElementById('chat-form');
 var chatInput = document.getElementById('chat-input');
 
-// Clear chat window using while loop
+
 while (chatWindow && chatWindow.firstChild) {
     chatWindow.removeChild(chatWindow.firstChild);
 }
 
-// State
 var step = 0;
-
-
 function botMessage(text) {
     var msg = document.createElement('div');
     msg.className = 'chat-message bot';
@@ -37,9 +32,6 @@ function showOptions(opts) {
     }
     return text;
 }
-
-
-
 
 function ask() {
     if (step === 0) {
@@ -72,9 +64,6 @@ function ask() {
 
 ask();
 
-
-
-
 chatForm.onsubmit = function(e) {
     e.preventDefault();
     var val = chatInput.value.trim().toLowerCase();
@@ -89,7 +78,6 @@ chatForm.onsubmit = function(e) {
         return;
     }
 
-    // Professional flow with confirmations and polite responses
     if (step === 0) {
         if (val === 'a') step = 1;
         else if (val === 'b') step = 2;
@@ -122,3 +110,4 @@ chatForm.onsubmit = function(e) {
     }
     ask();
 };
+
